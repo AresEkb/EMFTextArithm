@@ -33,7 +33,7 @@ public interface AdditiveExpr extends Expr {
 	 * <!-- end-user-doc -->
    * @return the value of the '<em>Children</em>' containment reference list.
    * @see org.emftext.language.arithm.ArithmPackage#getAdditiveExpr_Children()
-   * @model containment="true" lower="2"
+   * @model containment="true" required="true"
    * @generated
    */
 	EList<AdditiveExprChild> getChildren();
