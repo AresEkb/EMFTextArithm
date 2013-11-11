@@ -31,6 +31,15 @@ public interface ArithmFactory extends EFactory {
 	Calc createCalc();
 
 	/**
+   * Returns a new object of class '<em>Bit Shift Expr</em>'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bit Shift Expr</em>'.
+   * @generated
+   */
+	BitShiftExpr createBitShiftExpr();
+
+	/**
    * Returns a new object of class '<em>Additive Expr</em>'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

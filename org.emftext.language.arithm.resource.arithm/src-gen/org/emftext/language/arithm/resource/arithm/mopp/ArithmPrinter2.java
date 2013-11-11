@@ -196,16 +196,20 @@ public class ArithmPrinter2 implements org.emftext.language.arithm.resource.arit
 			printInternal(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_0, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.arithm.AdditiveExpr) {
+		if (element instanceof org.emftext.language.arithm.BitShiftExpr) {
 			printInternal(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_1, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.arithm.MultiplicativeExpr) {
+		if (element instanceof org.emftext.language.arithm.AdditiveExpr) {
 			printInternal(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_2, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.emftext.language.arithm.Number) {
+		if (element instanceof org.emftext.language.arithm.MultiplicativeExpr) {
 			printInternal(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.emftext.language.arithm.Number) {
+			printInternal(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_4, foundFormattingElements);
 			return;
 		}
 		

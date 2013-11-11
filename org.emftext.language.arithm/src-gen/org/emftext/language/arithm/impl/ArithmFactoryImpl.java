@@ -15,6 +15,8 @@ import org.emftext.language.arithm.AdditiveExpr;
 import org.emftext.language.arithm.AdditiveOp;
 import org.emftext.language.arithm.ArithmFactory;
 import org.emftext.language.arithm.ArithmPackage;
+import org.emftext.language.arithm.BitShiftExpr;
+import org.emftext.language.arithm.BitShiftOp;
 import org.emftext.language.arithm.Calc;
 import org.emftext.language.arithm.MultiplicativeExpr;
 import org.emftext.language.arithm.MultiplicativeOp;
@@ -68,6 +70,7 @@ public class ArithmFactoryImpl extends EFactoryImpl implements ArithmFactory {
     switch (eClass.getClassifierID())
     {
       case ArithmPackage.CALC: return createCalc();
+      case ArithmPackage.BIT_SHIFT_EXPR: return createBitShiftExpr();
       case ArithmPackage.ADDITIVE_EXPR: return createAdditiveExpr();
       case ArithmPackage.MULTIPLICATIVE_EXPR: return createMultiplicativeExpr();
       case ArithmPackage.NUMBER: return createNumber();
@@ -85,6 +88,8 @@ public class ArithmFactoryImpl extends EFactoryImpl implements ArithmFactory {
 	public Object createFromString(EDataType eDataType, String initialValue) {
     switch (eDataType.getClassifierID())
     {
+      case ArithmPackage.BIT_SHIFT_OP:
+        return createBitShiftOpFromString(eDataType, initialValue);
       case ArithmPackage.ADDITIVE_OP:
         return createAdditiveOpFromString(eDataType, initialValue);
       case ArithmPackage.MULTIPLICATIVE_OP:
@@ -103,6 +108,8 @@ public class ArithmFactoryImpl extends EFactoryImpl implements ArithmFactory {
 	public String convertToString(EDataType eDataType, Object instanceValue) {
     switch (eDataType.getClassifierID())
     {
+      case ArithmPackage.BIT_SHIFT_OP:
+        return convertBitShiftOpToString(eDataType, instanceValue);
       case ArithmPackage.ADDITIVE_OP:
         return convertAdditiveOpToString(eDataType, instanceValue);
       case ArithmPackage.MULTIPLICATIVE_OP:
@@ -120,6 +127,16 @@ public class ArithmFactoryImpl extends EFactoryImpl implements ArithmFactory {
 	public Calc createCalc() {
     CalcImpl calc = new CalcImpl();
     return calc;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public BitShiftExpr createBitShiftExpr() {
+    BitShiftExprImpl bitShiftExpr = new BitShiftExprImpl();
+    return bitShiftExpr;
   }
 
 	/**
@@ -150,6 +167,26 @@ public class ArithmFactoryImpl extends EFactoryImpl implements ArithmFactory {
 	public org.emftext.language.arithm.Number createNumber() {
     NumberImpl number = new NumberImpl();
     return number;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public BitShiftOp createBitShiftOpFromString(EDataType eDataType, String initialValue) {
+    BitShiftOp result = BitShiftOp.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public String convertBitShiftOpToString(EDataType eDataType, Object instanceValue) {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
 	/**

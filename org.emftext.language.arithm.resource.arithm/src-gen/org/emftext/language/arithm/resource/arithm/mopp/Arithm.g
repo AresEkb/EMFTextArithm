@@ -237,6 +237,9 @@ options {
 			if (type.getInstanceClass() == org.emftext.language.arithm.Calc.class) {
 				return parse_org_emftext_language_arithm_Calc();
 			}
+			if (type.getInstanceClass() == org.emftext.language.arithm.BitShiftExpr.class) {
+				return parse_org_emftext_language_arithm_BitShiftExpr();
+			}
 			if (type.getInstanceClass() == org.emftext.language.arithm.AdditiveExpr.class) {
 				return parse_org_emftext_language_arithm_AdditiveExpr();
 			}
@@ -340,7 +343,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 14;
+		int followSetID = 18;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_4_0.CommonToken nextToken = (org.antlr.runtime3_4_0.CommonToken) tokenStream.get(i);
@@ -602,23 +605,23 @@ parse_org_emftext_language_arithm_Calc returns [org.emftext.language.arithm.Calc
 	
 ;
 
-parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.arithm.AdditiveExpr element = null]
+parse_org_emftext_language_arithm_BitShiftExpr returns [org.emftext.language.arithm.BitShiftExpr element = null]
 @init{
 }
 :
 	(
-		a0_0 = parse_org_emftext_language_arithm_AdditiveExprChild		{
+		a0_0 = parse_org_emftext_language_arithm_BitShiftExprChild		{
 			if (terminateParsing) {
 				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
 			}
 			if (element == null) {
-				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
 				startIncompleteElement(element);
 			}
 			if (a0_0 != null) {
 				if (a0_0 != null) {
 					Object value = a0_0;
-					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
+					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN, value);
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
@@ -636,52 +639,52 @@ parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.ari
 		(
 			(
 				(
-					a1 = '+' {
+					a1 = '<<' {
 						if (element == null) {
-							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
 							startIncompleteElement(element);
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_1_0_0_1_0_0_0, null, true);
 						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
 						// set value of enumeration attribute
-						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.ADD_VALUE).getInstance();
-						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftOp().getEEnumLiteral(org.emftext.language.arithm.BitShiftOp.LEFT_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS, value);
 						completedElement(value, false);
 					}
-					|					a2 = '-' {
+					|					a2 = '>>' {
 						if (element == null) {
-							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
 							startIncompleteElement(element);
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_1_0_0_1_0_0_0, null, true);
 						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
 						// set value of enumeration attribute
-						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.SUB_VALUE).getInstance();
-						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftOp().getEEnumLiteral(org.emftext.language.arithm.BitShiftOp.RIGHT_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS, value);
 						completedElement(value, false);
 					}
 				)
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[6]);
+				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[6]);
 			}
 			
 			(
-				a5_0 = parse_org_emftext_language_arithm_AdditiveExprChild				{
+				a5_0 = parse_org_emftext_language_arithm_BitShiftExprChild				{
 					if (terminateParsing) {
 						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
 					}
 					if (element == null) {
-						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
 						startIncompleteElement(element);
 					}
 					if (a5_0 != null) {
 						if (a5_0 != null) {
 							Object value = a5_0;
-							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
+							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN, value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
@@ -706,23 +709,23 @@ parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.ari
 	
 ;
 
-parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.language.arithm.MultiplicativeExpr element = null]
+parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.arithm.AdditiveExpr element = null]
 @init{
 }
 :
 	(
-		a0_0 = parse_org_emftext_language_arithm_MultiplicativeExprChild		{
+		a0_0 = parse_org_emftext_language_arithm_AdditiveExprChild		{
 			if (terminateParsing) {
 				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
 			}
 			if (element == null) {
-				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
 				startIncompleteElement(element);
 			}
 			if (a0_0 != null) {
 				if (a0_0 != null) {
 					Object value = a0_0;
-					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
 					completedElement(value, true);
 				}
 				collectHiddenTokens(element);
@@ -740,52 +743,52 @@ parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.langua
 		(
 			(
 				(
-					a1 = '*' {
+					a1 = '+' {
 						if (element == null) {
-							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
 							startIncompleteElement(element);
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_2_0_0_1_0_0_0, null, true);
 						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
 						// set value of enumeration attribute
-						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.MUL_VALUE).getInstance();
-						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.ADD_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
 						completedElement(value, false);
 					}
-					|					a2 = '/' {
+					|					a2 = '-' {
 						if (element == null) {
-							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
 							startIncompleteElement(element);
 						}
 						collectHiddenTokens(element);
 						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_2_0_0_1_0_0_0, null, true);
 						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
 						// set value of enumeration attribute
-						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.DIV_VALUE).getInstance();
-						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.SUB_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
 						completedElement(value, false);
 					}
 				)
 			)
 			{
 				// expected elements (follow set)
-				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[12]);
+				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[12]);
 			}
 			
 			(
-				a5_0 = parse_org_emftext_language_arithm_MultiplicativeExprChild				{
+				a5_0 = parse_org_emftext_language_arithm_AdditiveExprChild				{
 					if (terminateParsing) {
 						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
 					}
 					if (element == null) {
-						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
 						startIncompleteElement(element);
 					}
 					if (a5_0 != null) {
 						if (a5_0 != null) {
 							Object value = a5_0;
-							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
 							completedElement(value, true);
 						}
 						collectHiddenTokens(element);
@@ -808,6 +811,114 @@ parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.langua
 		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[16]);
 		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[17]);
 		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[18]);
+	}
+	
+;
+
+parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.language.arithm.MultiplicativeExpr element = null]
+@init{
+}
+:
+	(
+		a0_0 = parse_org_emftext_language_arithm_MultiplicativeExprChild		{
+			if (terminateParsing) {
+				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
+			}
+			if (element == null) {
+				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+				startIncompleteElement(element);
+			}
+			if (a0_0 != null) {
+				if (a0_0 != null) {
+					Object value = a0_0;
+					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+					completedElement(value, true);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_0, a0_0, true);
+				copyLocalizationInfos(a0_0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[19]);
+	}
+	
+	(
+		(
+			(
+				(
+					a1 = '*' {
+						if (element == null) {
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+							startIncompleteElement(element);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_0, null, true);
+						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
+						// set value of enumeration attribute
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.MUL_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+						completedElement(value, false);
+					}
+					|					a2 = '/' {
+						if (element == null) {
+							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+							startIncompleteElement(element);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_0, null, true);
+						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
+						// set value of enumeration attribute
+						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.DIV_VALUE).getInstance();
+						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+						completedElement(value, false);
+					}
+				)
+			)
+			{
+				// expected elements (follow set)
+				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[20]);
+			}
+			
+			(
+				a5_0 = parse_org_emftext_language_arithm_MultiplicativeExprChild				{
+					if (terminateParsing) {
+						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
+					}
+					if (element == null) {
+						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+						startIncompleteElement(element);
+					}
+					if (a5_0 != null) {
+						if (a5_0 != null) {
+							Object value = a5_0;
+							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+							completedElement(value, true);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_1, a5_0, true);
+						copyLocalizationInfos(a5_0, element);
+					}
+				}
+			)
+			{
+				// expected elements (follow set)
+				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[21]);
+				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[22]);
+				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[23]);
+				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[24]);
+			}
+			
+		)
+		
+	)+	{
+		// expected elements (follow set)
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[25]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[26]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[27]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[28]);
 	}
 	
 ;
@@ -842,21 +953,31 @@ parse_org_emftext_language_arithm_Number returns [org.emftext.language.arithm.Nu
 					completedElement(value, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_0, resolved, true);
+				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_4_0_0_0, resolved, true);
 				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[19]);
-		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[20]);
-		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[21]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[29]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[30]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[31]);
+		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[32]);
 	}
 	
 ;
 
 parse_org_emftext_language_arithm_Expr returns [org.emftext.language.arithm.Expr element = null]
+:
+	c0 = parse_org_emftext_language_arithm_BitShiftExpr{ element = c0; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_org_emftext_language_arithm_AdditiveExpr{ element = c1; /* this is a subclass or primitive expression choice */ }
+	|	c2 = parse_org_emftext_language_arithm_MultiplicativeExpr{ element = c2; /* this is a subclass or primitive expression choice */ }
+	|	c3 = parse_org_emftext_language_arithm_Number{ element = c3; /* this is a subclass or primitive expression choice */ }
+	
+;
+
+parse_org_emftext_language_arithm_BitShiftExprChild returns [org.emftext.language.arithm.BitShiftExprChild element = null]
 :
 	c0 = parse_org_emftext_language_arithm_AdditiveExpr{ element = c0; /* this is a subclass or primitive expression choice */ }
 	|	c1 = parse_org_emftext_language_arithm_MultiplicativeExpr{ element = c1; /* this is a subclass or primitive expression choice */ }

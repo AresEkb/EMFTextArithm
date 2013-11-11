@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.emftext.language.arithm.AdditiveExpr;
 import org.emftext.language.arithm.AdditiveExprChild;
 import org.emftext.language.arithm.ArithmPackage;
+import org.emftext.language.arithm.BitShiftExpr;
+import org.emftext.language.arithm.BitShiftExprChild;
 import org.emftext.language.arithm.Calc;
 import org.emftext.language.arithm.Expr;
 import org.emftext.language.arithm.MultiplicativeExpr;
@@ -88,10 +90,27 @@ public class ArithmSwitch<T> extends Switch<T> {
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ArithmPackage.BIT_SHIFT_EXPR:
+      {
+        BitShiftExpr bitShiftExpr = (BitShiftExpr)theEObject;
+        T result = caseBitShiftExpr(bitShiftExpr);
+        if (result == null) result = caseExpr(bitShiftExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ArithmPackage.BIT_SHIFT_EXPR_CHILD:
+      {
+        BitShiftExprChild bitShiftExprChild = (BitShiftExprChild)theEObject;
+        T result = caseBitShiftExprChild(bitShiftExprChild);
+        if (result == null) result = caseExpr(bitShiftExprChild);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ArithmPackage.ADDITIVE_EXPR:
       {
         AdditiveExpr additiveExpr = (AdditiveExpr)theEObject;
         T result = caseAdditiveExpr(additiveExpr);
+        if (result == null) result = caseBitShiftExprChild(additiveExpr);
         if (result == null) result = caseExpr(additiveExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -100,6 +119,7 @@ public class ArithmSwitch<T> extends Switch<T> {
       {
         AdditiveExprChild additiveExprChild = (AdditiveExprChild)theEObject;
         T result = caseAdditiveExprChild(additiveExprChild);
+        if (result == null) result = caseBitShiftExprChild(additiveExprChild);
         if (result == null) result = caseExpr(additiveExprChild);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -109,6 +129,7 @@ public class ArithmSwitch<T> extends Switch<T> {
         MultiplicativeExpr multiplicativeExpr = (MultiplicativeExpr)theEObject;
         T result = caseMultiplicativeExpr(multiplicativeExpr);
         if (result == null) result = caseAdditiveExprChild(multiplicativeExpr);
+        if (result == null) result = caseBitShiftExprChild(multiplicativeExpr);
         if (result == null) result = caseExpr(multiplicativeExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -118,6 +139,7 @@ public class ArithmSwitch<T> extends Switch<T> {
         MultiplicativeExprChild multiplicativeExprChild = (MultiplicativeExprChild)theEObject;
         T result = caseMultiplicativeExprChild(multiplicativeExprChild);
         if (result == null) result = caseAdditiveExprChild(multiplicativeExprChild);
+        if (result == null) result = caseBitShiftExprChild(multiplicativeExprChild);
         if (result == null) result = caseExpr(multiplicativeExprChild);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -128,6 +150,7 @@ public class ArithmSwitch<T> extends Switch<T> {
         T result = caseNumber(number);
         if (result == null) result = caseMultiplicativeExprChild(number);
         if (result == null) result = caseAdditiveExprChild(number);
+        if (result == null) result = caseBitShiftExprChild(number);
         if (result == null) result = caseExpr(number);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -163,6 +186,36 @@ public class ArithmSwitch<T> extends Switch<T> {
    * @generated
    */
 	public T caseExpr(Expr object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Bit Shift Expr</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bit Shift Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseBitShiftExpr(BitShiftExpr object) {
+    return null;
+  }
+
+	/**
+   * Returns the result of interpreting the object as an instance of '<em>Bit Shift Expr Child</em>'.
+   * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bit Shift Expr Child</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+	public T caseBitShiftExprChild(BitShiftExprChild object) {
     return null;
   }
 

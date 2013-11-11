@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AdditiveExpr extends Expr {
+public interface AdditiveExpr extends BitShiftExprChild {
 	/**
    * Returns the value of the '<em><b>Children</b></em>' containment reference list.
    * The list contents are of type {@link org.emftext.language.arithm.AdditiveExprChild}.
@@ -33,7 +33,7 @@ public interface AdditiveExpr extends Expr {
 	 * <!-- end-user-doc -->
    * @return the value of the '<em>Children</em>' containment reference list.
    * @see org.emftext.language.arithm.ArithmPackage#getAdditiveExpr_Children()
-   * @model containment="true" required="true"
+   * @model containment="true" lower="2"
    * @generated
    */
 	EList<AdditiveExprChild> getChildren();

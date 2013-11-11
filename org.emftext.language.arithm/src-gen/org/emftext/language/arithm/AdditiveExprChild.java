@@ -13,5 +13,5 @@ package org.emftext.language.arithm;
  * @model abstract="true"
  * @generated
  */
-public interface AdditiveExprChild extends Expr {
+public interface AdditiveExprChild extends BitShiftExprChild {
 } // AdditiveExprChild

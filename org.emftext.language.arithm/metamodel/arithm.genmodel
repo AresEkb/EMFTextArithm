@@ -4,6 +4,10 @@
     modelName="arithm" complianceLevel="5.0" copyrightFields="false">
   <genPackages prefix="Arithm" basePackage="org.emftext.language" disposableProviderFactory="true"
       ecorePackage="arithm.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arithm.ecore#//BitShiftOp">
+      <genEnumLiterals ecoreEnumLiteral="arithm.ecore#//BitShiftOp/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="arithm.ecore#//BitShiftOp/RIGHT"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="arithm.ecore#//AdditiveOp">
       <genEnumLiterals ecoreEnumLiteral="arithm.ecore#//AdditiveOp/ADD"/>
       <genEnumLiterals ecoreEnumLiteral="arithm.ecore#//AdditiveOp/SUB"/>
@@ -16,6 +20,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arithm.ecore#//Calc/expr"/>
     </genClasses>
     <genClasses image="false" ecoreClass="arithm.ecore#//Expr"/>
+    <genClasses ecoreClass="arithm.ecore#//BitShiftExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arithm.ecore#//BitShiftExpr/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arithm.ecore#//BitShiftExpr/operators"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arithm.ecore#//BitShiftExprChild"/>
     <genClasses ecoreClass="arithm.ecore#//AdditiveExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arithm.ecore#//AdditiveExpr/children"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arithm.ecore#//AdditiveExpr/operators"/>

@@ -15,6 +15,9 @@ import org.emftext.language.arithm.AdditiveExprChild;
 import org.emftext.language.arithm.AdditiveOp;
 import org.emftext.language.arithm.ArithmFactory;
 import org.emftext.language.arithm.ArithmPackage;
+import org.emftext.language.arithm.BitShiftExpr;
+import org.emftext.language.arithm.BitShiftExprChild;
+import org.emftext.language.arithm.BitShiftOp;
 import org.emftext.language.arithm.Calc;
 import org.emftext.language.arithm.Expr;
 import org.emftext.language.arithm.MultiplicativeExpr;
@@ -41,6 +44,20 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
    * @generated
    */
 	private EClass exprEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass bitShiftExprEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EClass bitShiftExprChildEClass = null;
 
 	/**
    * <!-- begin-user-doc -->
@@ -76,6 +93,13 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
    * @generated
    */
 	private EClass numberEClass = null;
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	private EEnum bitShiftOpEEnum = null;
 
 	/**
    * <!-- begin-user-doc -->
@@ -184,6 +208,42 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
 	 * <!-- end-user-doc -->
    * @generated
    */
+	public EClass getBitShiftExpr() {
+    return bitShiftExprEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EReference getBitShiftExpr_Children() {
+    return (EReference)bitShiftExprEClass.getEStructuralFeatures().get(0);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EAttribute getBitShiftExpr_Operators() {
+    return (EAttribute)bitShiftExprEClass.getEStructuralFeatures().get(1);
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
+	public EClass getBitShiftExprChild() {
+    return bitShiftExprChildEClass;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
 	public EClass getAdditiveExpr() {
     return additiveExprEClass;
   }
@@ -274,6 +334,15 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
 	 * <!-- end-user-doc -->
    * @generated
    */
+	public EEnum getBitShiftOp() {
+    return bitShiftOpEEnum;
+  }
+
+	/**
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   */
 	public EEnum getAdditiveOp() {
     return additiveOpEEnum;
   }
@@ -320,6 +389,12 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
 
     exprEClass = createEClass(EXPR);
 
+    bitShiftExprEClass = createEClass(BIT_SHIFT_EXPR);
+    createEReference(bitShiftExprEClass, BIT_SHIFT_EXPR__CHILDREN);
+    createEAttribute(bitShiftExprEClass, BIT_SHIFT_EXPR__OPERATORS);
+
+    bitShiftExprChildEClass = createEClass(BIT_SHIFT_EXPR_CHILD);
+
     additiveExprEClass = createEClass(ADDITIVE_EXPR);
     createEReference(additiveExprEClass, ADDITIVE_EXPR__CHILDREN);
     createEAttribute(additiveExprEClass, ADDITIVE_EXPR__OPERATORS);
@@ -336,6 +411,7 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
     createEAttribute(numberEClass, NUMBER__VALUE);
 
     // Create enums
+    bitShiftOpEEnum = createEEnum(BIT_SHIFT_OP);
     additiveOpEEnum = createEEnum(ADDITIVE_OP);
     multiplicativeOpEEnum = createEEnum(MULTIPLICATIVE_OP);
   }
@@ -368,8 +444,10 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    additiveExprEClass.getESuperTypes().add(this.getExpr());
-    additiveExprChildEClass.getESuperTypes().add(this.getExpr());
+    bitShiftExprEClass.getESuperTypes().add(this.getExpr());
+    bitShiftExprChildEClass.getESuperTypes().add(this.getExpr());
+    additiveExprEClass.getESuperTypes().add(this.getBitShiftExprChild());
+    additiveExprChildEClass.getESuperTypes().add(this.getBitShiftExprChild());
     multiplicativeExprEClass.getESuperTypes().add(this.getAdditiveExprChild());
     multiplicativeExprChildEClass.getESuperTypes().add(this.getAdditiveExprChild());
     numberEClass.getESuperTypes().add(this.getMultiplicativeExprChild());
@@ -380,14 +458,20 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
 
     initEClass(exprEClass, Expr.class, "Expr", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(bitShiftExprEClass, BitShiftExpr.class, "BitShiftExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBitShiftExpr_Children(), this.getBitShiftExprChild(), null, "children", null, 2, -1, BitShiftExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBitShiftExpr_Operators(), this.getBitShiftOp(), "operators", null, 1, -1, BitShiftExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bitShiftExprChildEClass, BitShiftExprChild.class, "BitShiftExprChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(additiveExprEClass, AdditiveExpr.class, "AdditiveExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAdditiveExpr_Children(), this.getAdditiveExprChild(), null, "children", null, 1, -1, AdditiveExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdditiveExpr_Children(), this.getAdditiveExprChild(), null, "children", null, 2, -1, AdditiveExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAdditiveExpr_Operators(), this.getAdditiveOp(), "operators", null, 1, -1, AdditiveExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(additiveExprChildEClass, AdditiveExprChild.class, "AdditiveExprChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(multiplicativeExprEClass, MultiplicativeExpr.class, "MultiplicativeExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiplicativeExpr_Children(), this.getMultiplicativeExprChild(), null, "children", null, 1, -1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiplicativeExpr_Children(), this.getMultiplicativeExprChild(), null, "children", null, 2, -1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultiplicativeExpr_Operators(), this.getMultiplicativeOp(), "operators", null, 1, -1, MultiplicativeExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicativeExprChildEClass, MultiplicativeExprChild.class, "MultiplicativeExprChild", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -396,6 +480,10 @@ public class ArithmPackageImpl extends EPackageImpl implements ArithmPackage {
     initEAttribute(getNumber_Value(), ecorePackage.getEInt(), "value", null, 1, 1, org.emftext.language.arithm.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(bitShiftOpEEnum, BitShiftOp.class, "BitShiftOp");
+    addEEnumLiteral(bitShiftOpEEnum, BitShiftOp.LEFT);
+    addEEnumLiteral(bitShiftOpEEnum, BitShiftOp.RIGHT);
+
     initEEnum(additiveOpEEnum, AdditiveOp.class, "AdditiveOp");
     addEEnumLiteral(additiveOpEEnum, AdditiveOp.ADD);
     addEEnumLiteral(additiveOpEEnum, AdditiveOp.SUB);

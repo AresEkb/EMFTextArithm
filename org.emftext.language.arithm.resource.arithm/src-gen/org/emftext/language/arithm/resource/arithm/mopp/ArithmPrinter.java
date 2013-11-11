@@ -56,6 +56,10 @@ public class ArithmPrinter implements org.emftext.language.arithm.resource.arith
 			print_org_emftext_language_arithm_Calc((org.emftext.language.arithm.Calc) element, globaltab, out);
 			return;
 		}
+		if (element instanceof org.emftext.language.arithm.BitShiftExpr) {
+			print_org_emftext_language_arithm_BitShiftExpr((org.emftext.language.arithm.BitShiftExpr) element, globaltab, out);
+			return;
+		}
 		if (element instanceof org.emftext.language.arithm.AdditiveExpr) {
 			print_org_emftext_language_arithm_AdditiveExpr((org.emftext.language.arithm.AdditiveExpr) element, globaltab, out);
 			return;
@@ -191,6 +195,98 @@ public class ArithmPrinter implements org.emftext.language.arithm.resource.arith
 				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
 			}
 			printCountingMap.put("expr", count - 1);
+		}
+	}
+	
+	
+	public void print_org_emftext_language_arithm_BitShiftExpr(org.emftext.language.arithm.BitShiftExpr element, String outertab, java.io.PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN));
+		printCountingMap.put("children", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS));
+		printCountingMap.put("operators", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
+		// print collected hidden tokens
+		int count;
+		boolean iterate = true;
+		java.io.StringWriter sWriter = null;
+		java.io.PrintWriter out1 = null;
+		java.util.Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		print_org_emftext_language_arithm_BitShiftExpr_0(element, localtab, out, printCountingMap);
+		iterate = true;
+		while (iterate) {
+			sWriter = new java.io.StringWriter();
+			out1 = new java.io.PrintWriter(sWriter);
+			printCountingMap1 = new java.util.LinkedHashMap<String, Integer>(printCountingMap);
+			print_org_emftext_language_arithm_BitShiftExpr_0(element, localtab, out1, printCountingMap1);
+			if (printCountingMap.equals(printCountingMap1)) {
+				iterate = false;
+				out1.close();
+			} else {
+				out1.flush();
+				out1.close();
+				out.print(sWriter.toString());
+				printCountingMap.putAll(printCountingMap1);
+			}
+		}
+	}
+	
+	public void print_org_emftext_language_arithm_BitShiftExpr_0(org.emftext.language.arithm.BitShiftExpr element, String outertab, java.io.PrintWriter out, java.util.Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("operators");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+			}
+			printCountingMap.put("operators", count - 1);
+		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("children");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN));
+			java.util.List<?> list = (java.util.List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
+			}
+			printCountingMap.put("children", count - 1);
 		}
 	}
 	

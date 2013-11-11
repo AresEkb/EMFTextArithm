@@ -16,6 +16,8 @@ public class ArithmLexer extends Lexer {
     public static final int T__9=9;
     public static final int T__10=10;
     public static final int T__11=11;
+    public static final int T__12=12;
+    public static final int T__13=13;
     public static final int LINEBREAK=4;
     public static final int TEXT=5;
     public static final int WHITESPACE=6;
@@ -149,18 +151,64 @@ public class ArithmLexer extends Lexer {
     }
     // $ANTLR end "T__11"
 
+    // $ANTLR start "T__12"
+    public final void mT__12() throws RecognitionException {
+        try {
+            int _type = T__12;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Arithm.g:20:7: ( '<<' )
+            // Arithm.g:20:9: '<<'
+            {
+            match("<<"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__12"
+
+    // $ANTLR start "T__13"
+    public final void mT__13() throws RecognitionException {
+        try {
+            int _type = T__13;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Arithm.g:21:7: ( '>>' )
+            // Arithm.g:21:9: '>>'
+            {
+            match(">>"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__13"
+
     // $ANTLR start "TEXT"
     public final void mTEXT() throws RecognitionException {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Arithm.g:880:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ ) )
-            // Arithm.g:881:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
+            // Arithm.g:1001:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ ) )
+            // Arithm.g:1002:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
             {
-            // Arithm.g:881:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
-            // Arithm.g:881:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
+            // Arithm.g:1002:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
+            // Arithm.g:1002:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
             {
-            // Arithm.g:881:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
+            // Arithm.g:1002:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
             int cnt1=0;
             loop1:
             do {
@@ -218,8 +266,8 @@ public class ArithmLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Arithm.g:883:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
-            // Arithm.g:884:2: ( ( ' ' | '\\t' | '\\f' ) )
+            // Arithm.g:1004:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
+            // Arithm.g:1005:2: ( ( ' ' | '\\t' | '\\f' ) )
             {
             if ( input.LA(1)=='\t'||input.LA(1)=='\f'||input.LA(1)==' ' ) {
                 input.consume();
@@ -249,13 +297,13 @@ public class ArithmLexer extends Lexer {
         try {
             int _type = LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Arithm.g:887:10: ( ( ( '\\r\\n' | '\\r' | '\\n' ) ) )
-            // Arithm.g:888:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
+            // Arithm.g:1008:10: ( ( ( '\\r\\n' | '\\r' | '\\n' ) ) )
+            // Arithm.g:1009:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
             {
-            // Arithm.g:888:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
-            // Arithm.g:888:3: ( '\\r\\n' | '\\r' | '\\n' )
+            // Arithm.g:1009:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
+            // Arithm.g:1009:3: ( '\\r\\n' | '\\r' | '\\n' )
             {
-            // Arithm.g:888:3: ( '\\r\\n' | '\\r' | '\\n' )
+            // Arithm.g:1009:3: ( '\\r\\n' | '\\r' | '\\n' )
             int alt2=3;
             int LA2_0 = input.LA(1);
 
@@ -281,7 +329,7 @@ public class ArithmLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // Arithm.g:888:4: '\\r\\n'
+                    // Arithm.g:1009:4: '\\r\\n'
                     {
                     match("\r\n"); 
 
@@ -290,14 +338,14 @@ public class ArithmLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Arithm.g:888:13: '\\r'
+                    // Arithm.g:1009:13: '\\r'
                     {
                     match('\r'); 
 
                     }
                     break;
                 case 3 :
-                    // Arithm.g:888:20: '\\n'
+                    // Arithm.g:1009:20: '\\n'
                     {
                     match('\n'); 
 
@@ -324,8 +372,8 @@ public class ArithmLexer extends Lexer {
     // $ANTLR end "LINEBREAK"
 
     public void mTokens() throws RecognitionException {
-        // Arithm.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | TEXT | WHITESPACE | LINEBREAK )
-        int alt3=8;
+        // Arithm.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | TEXT | WHITESPACE | LINEBREAK )
+        int alt3=10;
         switch ( input.LA(1) ) {
         case '*':
             {
@@ -347,7 +395,7 @@ public class ArithmLexer extends Lexer {
             int LA3_4 = input.LA(2);
 
             if ( (LA3_4=='-'||(LA3_4 >= '0' && LA3_4 <= '9')||(LA3_4 >= 'A' && LA3_4 <= 'Z')||LA3_4=='_'||(LA3_4 >= 'a' && LA3_4 <= 'z')) ) {
-                alt3=6;
+                alt3=8;
             }
             else {
                 alt3=4;
@@ -357,6 +405,16 @@ public class ArithmLexer extends Lexer {
         case '/':
             {
             alt3=5;
+            }
+            break;
+        case '<':
+            {
+            alt3=6;
+            }
+            break;
+        case '>':
+            {
+            alt3=7;
             }
             break;
         case '0':
@@ -423,20 +481,20 @@ public class ArithmLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt3=6;
+            alt3=8;
             }
             break;
         case '\t':
         case '\f':
         case ' ':
             {
-            alt3=7;
+            alt3=9;
             }
             break;
         case '\n':
         case '\r':
             {
-            alt3=8;
+            alt3=10;
             }
             break;
         default:
@@ -489,23 +547,39 @@ public class ArithmLexer extends Lexer {
                 }
                 break;
             case 6 :
-                // Arithm.g:1:37: TEXT
+                // Arithm.g:1:37: T__12
+                {
+                mT__12(); 
+
+
+                }
+                break;
+            case 7 :
+                // Arithm.g:1:43: T__13
+                {
+                mT__13(); 
+
+
+                }
+                break;
+            case 8 :
+                // Arithm.g:1:49: TEXT
                 {
                 mTEXT(); 
 
 
                 }
                 break;
-            case 7 :
-                // Arithm.g:1:42: WHITESPACE
+            case 9 :
+                // Arithm.g:1:54: WHITESPACE
                 {
                 mWHITESPACE(); 
 
 
                 }
                 break;
-            case 8 :
-                // Arithm.g:1:53: LINEBREAK
+            case 10 :
+                // Arithm.g:1:65: LINEBREAK
                 {
                 mLINEBREAK(); 
 

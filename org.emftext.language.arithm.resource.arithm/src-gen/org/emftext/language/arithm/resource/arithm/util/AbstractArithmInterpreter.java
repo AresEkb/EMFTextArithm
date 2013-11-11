@@ -64,6 +64,12 @@ public class AbstractArithmInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.emftext.language.arithm.BitShiftExpr) {
+			result = interprete_org_emftext_language_arithm_BitShiftExpr((org.emftext.language.arithm.BitShiftExpr) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.arithm.AdditiveExpr) {
 			result = interprete_org_emftext_language_arithm_AdditiveExpr((org.emftext.language.arithm.AdditiveExpr) object, context);
 		}
@@ -94,6 +100,12 @@ public class AbstractArithmInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.emftext.language.arithm.BitShiftExprChild) {
+			result = interprete_org_emftext_language_arithm_BitShiftExprChild((org.emftext.language.arithm.BitShiftExprChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.emftext.language.arithm.Expr) {
 			result = interprete_org_emftext_language_arithm_Expr((org.emftext.language.arithm.Expr) object, context);
 		}
@@ -108,6 +120,14 @@ public class AbstractArithmInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_emftext_language_arithm_Expr(org.emftext.language.arithm.Expr expr, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_arithm_BitShiftExpr(org.emftext.language.arithm.BitShiftExpr bitShiftExpr, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_emftext_language_arithm_BitShiftExprChild(org.emftext.language.arithm.BitShiftExprChild bitShiftExprChild, ContextType context) {
 		return null;
 	}
 	

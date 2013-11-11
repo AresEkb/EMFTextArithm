@@ -9,6 +9,7 @@ OPTIONS {
 
 RULES {
 	Calc ::= expr ("," expr)*;
+	BitShiftExpr ::= children (operators[LEFT : "<<", RIGHT : ">>"] children)+;
 	AdditiveExpr ::= children (operators[ADD : "+", SUB : "-"] children)+;
 	MultiplicativeExpr ::= children (operators[MUL : "*", DIV : "/"] children)+;
 	Number ::= value[];

@@ -13,7 +13,7 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class ArithmParser extends ArithmANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LINEBREAK", "TEXT", "WHITESPACE", "'*'", "'+'", "','", "'-'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LINEBREAK", "TEXT", "WHITESPACE", "'*'", "'+'", "','", "'-'", "'/'", "'<<'", "'>>'"
     };
 
     public static final int EOF=-1;
@@ -22,6 +22,8 @@ public class ArithmParser extends ArithmANTLRParserBase {
     public static final int T__9=9;
     public static final int T__10=10;
     public static final int T__11=11;
+    public static final int T__12=12;
+    public static final int T__13=13;
     public static final int LINEBREAK=4;
     public static final int TEXT=5;
     public static final int WHITESPACE=6;
@@ -39,7 +41,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
     }
     public ArithmParser(TokenStream input, RecognizerSharedState state) {
         super(input, state);
-        this.state.initializeRuleMemo(16 + 1);
+        this.state.initializeRuleMemo(23 + 1);
          
 
     }
@@ -261,6 +263,9 @@ public class ArithmParser extends ArithmANTLRParserBase {
     			if (type.getInstanceClass() == org.emftext.language.arithm.Calc.class) {
     				return parse_org_emftext_language_arithm_Calc();
     			}
+    			if (type.getInstanceClass() == org.emftext.language.arithm.BitShiftExpr.class) {
+    				return parse_org_emftext_language_arithm_BitShiftExpr();
+    			}
     			if (type.getInstanceClass() == org.emftext.language.arithm.AdditiveExpr.class) {
     				return parse_org_emftext_language_arithm_AdditiveExpr();
     			}
@@ -364,7 +369,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
     				break;
     			}
     		}
-    		int followSetID = 14;
+    		int followSetID = 18;
     		int i;
     		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
     			org.antlr.runtime3_4_0.CommonToken nextToken = (org.antlr.runtime3_4_0.CommonToken) tokenStream.get(i);
@@ -531,7 +536,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
     // $ANTLR start "start"
-    // Arithm.g:508:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_org_emftext_language_arithm_Calc ) EOF ;
+    // Arithm.g:511:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_org_emftext_language_arithm_Calc ) EOF ;
     public final org.eclipse.emf.ecore.EObject start() throws RecognitionException {
         org.eclipse.emf.ecore.EObject element =  null;
 
@@ -543,8 +548,8 @@ public class ArithmParser extends ArithmANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return element; }
 
-            // Arithm.g:509:2: ( (c0= parse_org_emftext_language_arithm_Calc ) EOF )
-            // Arithm.g:510:2: (c0= parse_org_emftext_language_arithm_Calc ) EOF
+            // Arithm.g:512:2: ( (c0= parse_org_emftext_language_arithm_Calc ) EOF )
+            // Arithm.g:513:2: (c0= parse_org_emftext_language_arithm_Calc ) EOF
             {
             if ( state.backtracking==0 ) {
             		// follow set for start rule(s)
@@ -552,8 +557,8 @@ public class ArithmParser extends ArithmANTLRParserBase {
             		expectedElementsIndexOfLastCompleteElement = 0;
             	}
 
-            // Arithm.g:515:2: (c0= parse_org_emftext_language_arithm_Calc )
-            // Arithm.g:516:3: c0= parse_org_emftext_language_arithm_Calc
+            // Arithm.g:518:2: (c0= parse_org_emftext_language_arithm_Calc )
+            // Arithm.g:519:3: c0= parse_org_emftext_language_arithm_Calc
             {
             pushFollow(FOLLOW_parse_org_emftext_language_arithm_Calc_in_start82);
             c0=parse_org_emftext_language_arithm_Calc();
@@ -592,7 +597,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_arithm_Calc"
-    // Arithm.g:524:1: parse_org_emftext_language_arithm_Calc returns [org.emftext.language.arithm.Calc element = null] : (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )* ;
+    // Arithm.g:527:1: parse_org_emftext_language_arithm_Calc returns [org.emftext.language.arithm.Calc element = null] : (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )* ;
     public final org.emftext.language.arithm.Calc parse_org_emftext_language_arithm_Calc() throws RecognitionException {
         org.emftext.language.arithm.Calc element =  null;
 
@@ -609,11 +614,11 @@ public class ArithmParser extends ArithmANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return element; }
 
-            // Arithm.g:527:2: ( (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )* )
-            // Arithm.g:528:2: (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )*
+            // Arithm.g:530:2: ( (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )* )
+            // Arithm.g:531:2: (a0_0= parse_org_emftext_language_arithm_Expr ) ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )*
             {
-            // Arithm.g:528:2: (a0_0= parse_org_emftext_language_arithm_Expr )
-            // Arithm.g:529:3: a0_0= parse_org_emftext_language_arithm_Expr
+            // Arithm.g:531:2: (a0_0= parse_org_emftext_language_arithm_Expr )
+            // Arithm.g:532:3: a0_0= parse_org_emftext_language_arithm_Expr
             {
             pushFollow(FOLLOW_parse_org_emftext_language_arithm_Expr_in_parse_org_emftext_language_arithm_Calc119);
             a0_0=parse_org_emftext_language_arithm_Expr();
@@ -649,7 +654,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
             		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[1]);
             	}
 
-            // Arithm.g:554:2: ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )*
+            // Arithm.g:557:2: ( (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -662,10 +667,10 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
                 switch (alt1) {
             	case 1 :
-            	    // Arithm.g:555:3: (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) )
+            	    // Arithm.g:558:3: (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) )
             	    {
-            	    // Arithm.g:555:3: (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) )
-            	    // Arithm.g:556:4: a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr )
+            	    // Arithm.g:558:3: (a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr ) )
+            	    // Arithm.g:559:4: a1= ',' (a2_0= parse_org_emftext_language_arithm_Expr )
             	    {
             	    a1=(Token)match(input,9,FOLLOW_9_in_parse_org_emftext_language_arithm_Calc146); if (state.failed) return element;
 
@@ -684,8 +689,8 @@ public class ArithmParser extends ArithmANTLRParserBase {
             	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getCalc(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[2]);
             	    			}
 
-            	    // Arithm.g:570:4: (a2_0= parse_org_emftext_language_arithm_Expr )
-            	    // Arithm.g:571:5: a2_0= parse_org_emftext_language_arithm_Expr
+            	    // Arithm.g:573:4: (a2_0= parse_org_emftext_language_arithm_Expr )
+            	    // Arithm.g:574:5: a2_0= parse_org_emftext_language_arithm_Expr
             	    {
             	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Expr_in_parse_org_emftext_language_arithm_Calc172);
             	    a2_0=parse_org_emftext_language_arithm_Expr();
@@ -757,18 +762,18 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_emftext_language_arithm_AdditiveExpr"
-    // Arithm.g:605:1: parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.arithm.AdditiveExpr element = null] : (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+ ;
-    public final org.emftext.language.arithm.AdditiveExpr parse_org_emftext_language_arithm_AdditiveExpr() throws RecognitionException {
-        org.emftext.language.arithm.AdditiveExpr element =  null;
+    // $ANTLR start "parse_org_emftext_language_arithm_BitShiftExpr"
+    // Arithm.g:608:1: parse_org_emftext_language_arithm_BitShiftExpr returns [org.emftext.language.arithm.BitShiftExpr element = null] : (a0_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ( ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ) )+ ;
+    public final org.emftext.language.arithm.BitShiftExpr parse_org_emftext_language_arithm_BitShiftExpr() throws RecognitionException {
+        org.emftext.language.arithm.BitShiftExpr element =  null;
 
-        int parse_org_emftext_language_arithm_AdditiveExpr_StartIndex = input.index();
+        int parse_org_emftext_language_arithm_BitShiftExpr_StartIndex = input.index();
 
         Token a1=null;
         Token a2=null;
-        org.emftext.language.arithm.AdditiveExprChild a0_0 =null;
+        org.emftext.language.arithm.BitShiftExprChild a0_0 =null;
 
-        org.emftext.language.arithm.AdditiveExprChild a5_0 =null;
+        org.emftext.language.arithm.BitShiftExprChild a5_0 =null;
 
 
 
@@ -776,14 +781,14 @@ public class ArithmParser extends ArithmANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return element; }
 
-            // Arithm.g:608:2: ( (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+ )
-            // Arithm.g:609:2: (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+
+            // Arithm.g:611:2: ( (a0_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ( ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ) )+ )
+            // Arithm.g:612:2: (a0_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ( ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ) )+
             {
-            // Arithm.g:609:2: (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild )
-            // Arithm.g:610:3: a0_0= parse_org_emftext_language_arithm_AdditiveExprChild
+            // Arithm.g:612:2: (a0_0= parse_org_emftext_language_arithm_BitShiftExprChild )
+            // Arithm.g:613:3: a0_0= parse_org_emftext_language_arithm_BitShiftExprChild
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr232);
-            a0_0=parse_org_emftext_language_arithm_AdditiveExprChild();
+            pushFollow(FOLLOW_parse_org_emftext_language_arithm_BitShiftExprChild_in_parse_org_emftext_language_arithm_BitShiftExpr232);
+            a0_0=parse_org_emftext_language_arithm_BitShiftExprChild();
 
             state._fsp--;
             if (state.failed) return element;
@@ -793,13 +798,13 @@ public class ArithmParser extends ArithmANTLRParserBase {
             				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
             			}
             			if (element == null) {
-            				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+            				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
             				startIncompleteElement(element);
             			}
             			if (a0_0 != null) {
             				if (a0_0 != null) {
             					Object value = a0_0;
-            					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
+            					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN, value);
             					completedElement(value, true);
             				}
             				collectHiddenTokens(element);
@@ -816,36 +821,36 @@ public class ArithmParser extends ArithmANTLRParserBase {
             		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[5]);
             	}
 
-            // Arithm.g:635:2: ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+
+            // Arithm.g:638:2: ( ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) ) )+
             int cnt3=0;
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==8||LA3_0==10) ) {
+                if ( ((LA3_0 >= 12 && LA3_0 <= 13)) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // Arithm.g:636:3: ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) )
+            	    // Arithm.g:639:3: ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) )
             	    {
-            	    // Arithm.g:636:3: ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) )
-            	    // Arithm.g:637:4: ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild )
+            	    // Arithm.g:639:3: ( ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild ) )
+            	    // Arithm.g:640:4: ( (a1= '<<' |a2= '>>' ) ) (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild )
             	    {
-            	    // Arithm.g:637:4: ( (a1= '+' |a2= '-' ) )
-            	    // Arithm.g:638:5: (a1= '+' |a2= '-' )
+            	    // Arithm.g:640:4: ( (a1= '<<' |a2= '>>' ) )
+            	    // Arithm.g:641:5: (a1= '<<' |a2= '>>' )
             	    {
-            	    // Arithm.g:638:5: (a1= '+' |a2= '-' )
+            	    // Arithm.g:641:5: (a1= '<<' |a2= '>>' )
             	    int alt2=2;
             	    int LA2_0 = input.LA(1);
 
-            	    if ( (LA2_0==8) ) {
+            	    if ( (LA2_0==12) ) {
             	        alt2=1;
             	    }
-            	    else if ( (LA2_0==10) ) {
+            	    else if ( (LA2_0==13) ) {
             	        alt2=2;
             	    }
             	    else {
@@ -858,42 +863,42 @@ public class ArithmParser extends ArithmANTLRParserBase {
             	    }
             	    switch (alt2) {
             	        case 1 :
-            	            // Arithm.g:639:6: a1= '+'
+            	            // Arithm.g:642:6: a1= '<<'
             	            {
-            	            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_emftext_language_arithm_AdditiveExpr272); if (state.failed) return element;
+            	            a1=(Token)match(input,12,FOLLOW_12_in_parse_org_emftext_language_arithm_BitShiftExpr272); if (state.failed) return element;
 
             	            if ( state.backtracking==0 ) {
             	            						if (element == null) {
-            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
             	            							startIncompleteElement(element);
             	            						}
             	            						collectHiddenTokens(element);
             	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_1_0_0_1_0_0_0, null, true);
             	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
             	            						// set value of enumeration attribute
-            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.ADD_VALUE).getInstance();
-            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftOp().getEEnumLiteral(org.emftext.language.arithm.BitShiftOp.LEFT_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS, value);
             	            						completedElement(value, false);
             	            					}
 
             	            }
             	            break;
             	        case 2 :
-            	            // Arithm.g:652:12: a2= '-'
+            	            // Arithm.g:655:12: a2= '>>'
             	            {
-            	            a2=(Token)match(input,10,FOLLOW_10_in_parse_org_emftext_language_arithm_AdditiveExpr291); if (state.failed) return element;
+            	            a2=(Token)match(input,13,FOLLOW_13_in_parse_org_emftext_language_arithm_BitShiftExpr291); if (state.failed) return element;
 
             	            if ( state.backtracking==0 ) {
             	            						if (element == null) {
-            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
             	            							startIncompleteElement(element);
             	            						}
             	            						collectHiddenTokens(element);
             	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_1_0_0_1_0_0_0, null, true);
             	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
             	            						// set value of enumeration attribute
-            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.SUB_VALUE).getInstance();
-            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftOp().getEEnumLiteral(org.emftext.language.arithm.BitShiftOp.RIGHT_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__OPERATORS, value);
             	            						completedElement(value, false);
             	            					}
 
@@ -908,14 +913,14 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
             	    if ( state.backtracking==0 ) {
             	    				// expected elements (follow set)
-            	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[6]);
+            	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getBitShiftExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[6]);
             	    			}
 
-            	    // Arithm.g:672:4: (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild )
-            	    // Arithm.g:673:5: a5_0= parse_org_emftext_language_arithm_AdditiveExprChild
+            	    // Arithm.g:675:4: (a5_0= parse_org_emftext_language_arithm_BitShiftExprChild )
+            	    // Arithm.g:676:5: a5_0= parse_org_emftext_language_arithm_BitShiftExprChild
             	    {
-            	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr328);
-            	    a5_0=parse_org_emftext_language_arithm_AdditiveExprChild();
+            	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_BitShiftExprChild_in_parse_org_emftext_language_arithm_BitShiftExpr328);
+            	    a5_0=parse_org_emftext_language_arithm_BitShiftExprChild();
 
             	    state._fsp--;
             	    if (state.failed) return element;
@@ -925,13 +930,13 @@ public class ArithmParser extends ArithmANTLRParserBase {
             	    						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
             	    					}
             	    					if (element == null) {
-            	    						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
+            	    						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createBitShiftExpr();
             	    						startIncompleteElement(element);
             	    					}
             	    					if (a5_0 != null) {
             	    						if (a5_0 != null) {
             	    							Object value = a5_0;
-            	    							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
+            	    							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.BIT_SHIFT_EXPR__CHILDREN, value);
             	    							completedElement(value, true);
             	    						}
             	    						collectHiddenTokens(element);
@@ -982,27 +987,27 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 3, parse_org_emftext_language_arithm_AdditiveExpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 3, parse_org_emftext_language_arithm_BitShiftExpr_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_arithm_AdditiveExpr"
+    // $ANTLR end "parse_org_emftext_language_arithm_BitShiftExpr"
 
 
 
-    // $ANTLR start "parse_org_emftext_language_arithm_MultiplicativeExpr"
-    // Arithm.g:709:1: parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.language.arithm.MultiplicativeExpr element = null] : (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+ ;
-    public final org.emftext.language.arithm.MultiplicativeExpr parse_org_emftext_language_arithm_MultiplicativeExpr() throws RecognitionException {
-        org.emftext.language.arithm.MultiplicativeExpr element =  null;
+    // $ANTLR start "parse_org_emftext_language_arithm_AdditiveExpr"
+    // Arithm.g:712:1: parse_org_emftext_language_arithm_AdditiveExpr returns [org.emftext.language.arithm.AdditiveExpr element = null] : (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+ ;
+    public final org.emftext.language.arithm.AdditiveExpr parse_org_emftext_language_arithm_AdditiveExpr() throws RecognitionException {
+        org.emftext.language.arithm.AdditiveExpr element =  null;
 
-        int parse_org_emftext_language_arithm_MultiplicativeExpr_StartIndex = input.index();
+        int parse_org_emftext_language_arithm_AdditiveExpr_StartIndex = input.index();
 
         Token a1=null;
         Token a2=null;
-        org.emftext.language.arithm.MultiplicativeExprChild a0_0 =null;
+        org.emftext.language.arithm.AdditiveExprChild a0_0 =null;
 
-        org.emftext.language.arithm.MultiplicativeExprChild a5_0 =null;
+        org.emftext.language.arithm.AdditiveExprChild a5_0 =null;
 
 
 
@@ -1010,14 +1015,14 @@ public class ArithmParser extends ArithmANTLRParserBase {
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return element; }
 
-            // Arithm.g:712:2: ( (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+ )
-            // Arithm.g:713:2: (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+
+            // Arithm.g:715:2: ( (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+ )
+            // Arithm.g:716:2: (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+
             {
-            // Arithm.g:713:2: (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
-            // Arithm.g:714:3: a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild
+            // Arithm.g:716:2: (a0_0= parse_org_emftext_language_arithm_AdditiveExprChild )
+            // Arithm.g:717:3: a0_0= parse_org_emftext_language_arithm_AdditiveExprChild
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr388);
-            a0_0=parse_org_emftext_language_arithm_MultiplicativeExprChild();
+            pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr388);
+            a0_0=parse_org_emftext_language_arithm_AdditiveExprChild();
 
             state._fsp--;
             if (state.failed) return element;
@@ -1027,13 +1032,13 @@ public class ArithmParser extends ArithmANTLRParserBase {
             				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
             			}
             			if (element == null) {
-            				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
             				startIncompleteElement(element);
             			}
             			if (a0_0 != null) {
             				if (a0_0 != null) {
             					Object value = a0_0;
-            					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+            					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
             					completedElement(value, true);
             				}
             				collectHiddenTokens(element);
@@ -1050,36 +1055,36 @@ public class ArithmParser extends ArithmANTLRParserBase {
             		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[11]);
             	}
 
-            // Arithm.g:739:2: ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+
+            // Arithm.g:742:2: ( ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) ) )+
             int cnt5=0;
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==7||LA5_0==11) ) {
+                if ( (LA5_0==8||LA5_0==10) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // Arithm.g:740:3: ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) )
+            	    // Arithm.g:743:3: ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) )
             	    {
-            	    // Arithm.g:740:3: ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) )
-            	    // Arithm.g:741:4: ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
+            	    // Arithm.g:743:3: ( ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild ) )
+            	    // Arithm.g:744:4: ( (a1= '+' |a2= '-' ) ) (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild )
             	    {
-            	    // Arithm.g:741:4: ( (a1= '*' |a2= '/' ) )
-            	    // Arithm.g:742:5: (a1= '*' |a2= '/' )
+            	    // Arithm.g:744:4: ( (a1= '+' |a2= '-' ) )
+            	    // Arithm.g:745:5: (a1= '+' |a2= '-' )
             	    {
-            	    // Arithm.g:742:5: (a1= '*' |a2= '/' )
+            	    // Arithm.g:745:5: (a1= '+' |a2= '-' )
             	    int alt4=2;
             	    int LA4_0 = input.LA(1);
 
-            	    if ( (LA4_0==7) ) {
+            	    if ( (LA4_0==8) ) {
             	        alt4=1;
             	    }
-            	    else if ( (LA4_0==11) ) {
+            	    else if ( (LA4_0==10) ) {
             	        alt4=2;
             	    }
             	    else {
@@ -1092,42 +1097,42 @@ public class ArithmParser extends ArithmANTLRParserBase {
             	    }
             	    switch (alt4) {
             	        case 1 :
-            	            // Arithm.g:743:6: a1= '*'
+            	            // Arithm.g:746:6: a1= '+'
             	            {
-            	            a1=(Token)match(input,7,FOLLOW_7_in_parse_org_emftext_language_arithm_MultiplicativeExpr428); if (state.failed) return element;
+            	            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_emftext_language_arithm_AdditiveExpr428); if (state.failed) return element;
 
             	            if ( state.backtracking==0 ) {
             	            						if (element == null) {
-            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
             	            							startIncompleteElement(element);
             	            						}
             	            						collectHiddenTokens(element);
             	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_2_0_0_1_0_0_0, null, true);
             	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
             	            						// set value of enumeration attribute
-            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.MUL_VALUE).getInstance();
-            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.ADD_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
             	            						completedElement(value, false);
             	            					}
 
             	            }
             	            break;
             	        case 2 :
-            	            // Arithm.g:756:12: a2= '/'
+            	            // Arithm.g:759:12: a2= '-'
             	            {
-            	            a2=(Token)match(input,11,FOLLOW_11_in_parse_org_emftext_language_arithm_MultiplicativeExpr447); if (state.failed) return element;
+            	            a2=(Token)match(input,10,FOLLOW_10_in_parse_org_emftext_language_arithm_AdditiveExpr447); if (state.failed) return element;
 
             	            if ( state.backtracking==0 ) {
             	            						if (element == null) {
-            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
             	            							startIncompleteElement(element);
             	            						}
             	            						collectHiddenTokens(element);
             	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_2_0_0_1_0_0_0, null, true);
             	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
             	            						// set value of enumeration attribute
-            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.DIV_VALUE).getInstance();
-            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveOp().getEEnumLiteral(org.emftext.language.arithm.AdditiveOp.SUB_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__OPERATORS, value);
             	            						completedElement(value, false);
             	            					}
 
@@ -1142,14 +1147,14 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
             	    if ( state.backtracking==0 ) {
             	    				// expected elements (follow set)
-            	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[12]);
+            	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getAdditiveExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[12]);
             	    			}
 
-            	    // Arithm.g:776:4: (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
-            	    // Arithm.g:777:5: a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild
+            	    // Arithm.g:779:4: (a5_0= parse_org_emftext_language_arithm_AdditiveExprChild )
+            	    // Arithm.g:780:5: a5_0= parse_org_emftext_language_arithm_AdditiveExprChild
             	    {
-            	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr484);
-            	    a5_0=parse_org_emftext_language_arithm_MultiplicativeExprChild();
+            	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr484);
+            	    a5_0=parse_org_emftext_language_arithm_AdditiveExprChild();
 
             	    state._fsp--;
             	    if (state.failed) return element;
@@ -1159,13 +1164,13 @@ public class ArithmParser extends ArithmANTLRParserBase {
             	    						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
             	    					}
             	    					if (element == null) {
-            	    						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	    						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createAdditiveExpr();
             	    						startIncompleteElement(element);
             	    					}
             	    					if (a5_0 != null) {
             	    						if (a5_0 != null) {
             	    							Object value = a5_0;
-            	    							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+            	    							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.ADDITIVE_EXPR__CHILDREN, value);
             	    							completedElement(value, true);
             	    						}
             	    						collectHiddenTokens(element);
@@ -1218,7 +1223,245 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 4, parse_org_emftext_language_arithm_MultiplicativeExpr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 4, parse_org_emftext_language_arithm_AdditiveExpr_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_arithm_AdditiveExpr"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_arithm_MultiplicativeExpr"
+    // Arithm.g:818:1: parse_org_emftext_language_arithm_MultiplicativeExpr returns [org.emftext.language.arithm.MultiplicativeExpr element = null] : (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+ ;
+    public final org.emftext.language.arithm.MultiplicativeExpr parse_org_emftext_language_arithm_MultiplicativeExpr() throws RecognitionException {
+        org.emftext.language.arithm.MultiplicativeExpr element =  null;
+
+        int parse_org_emftext_language_arithm_MultiplicativeExpr_StartIndex = input.index();
+
+        Token a1=null;
+        Token a2=null;
+        org.emftext.language.arithm.MultiplicativeExprChild a0_0 =null;
+
+        org.emftext.language.arithm.MultiplicativeExprChild a5_0 =null;
+
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
+
+            // Arithm.g:821:2: ( (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+ )
+            // Arithm.g:822:2: (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+
+            {
+            // Arithm.g:822:2: (a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
+            // Arithm.g:823:3: a0_0= parse_org_emftext_language_arithm_MultiplicativeExprChild
+            {
+            pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr544);
+            a0_0=parse_org_emftext_language_arithm_MultiplicativeExprChild();
+
+            state._fsp--;
+            if (state.failed) return element;
+
+            if ( state.backtracking==0 ) {
+            			if (terminateParsing) {
+            				throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
+            			}
+            			if (element == null) {
+            				element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            				startIncompleteElement(element);
+            			}
+            			if (a0_0 != null) {
+            				if (a0_0 != null) {
+            					Object value = a0_0;
+            					addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+            					completedElement(value, true);
+            				}
+            				collectHiddenTokens(element);
+            				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_0, a0_0, true);
+            				copyLocalizationInfos(a0_0, element);
+            			}
+            		}
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[19]);
+            	}
+
+            // Arithm.g:848:2: ( ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) ) )+
+            int cnt7=0;
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==7||LA7_0==11) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // Arithm.g:849:3: ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) )
+            	    {
+            	    // Arithm.g:849:3: ( ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild ) )
+            	    // Arithm.g:850:4: ( (a1= '*' |a2= '/' ) ) (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
+            	    {
+            	    // Arithm.g:850:4: ( (a1= '*' |a2= '/' ) )
+            	    // Arithm.g:851:5: (a1= '*' |a2= '/' )
+            	    {
+            	    // Arithm.g:851:5: (a1= '*' |a2= '/' )
+            	    int alt6=2;
+            	    int LA6_0 = input.LA(1);
+
+            	    if ( (LA6_0==7) ) {
+            	        alt6=1;
+            	    }
+            	    else if ( (LA6_0==11) ) {
+            	        alt6=2;
+            	    }
+            	    else {
+            	        if (state.backtracking>0) {state.failed=true; return element;}
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 6, 0, input);
+
+            	        throw nvae;
+
+            	    }
+            	    switch (alt6) {
+            	        case 1 :
+            	            // Arithm.g:852:6: a1= '*'
+            	            {
+            	            a1=(Token)match(input,7,FOLLOW_7_in_parse_org_emftext_language_arithm_MultiplicativeExpr584); if (state.failed) return element;
+
+            	            if ( state.backtracking==0 ) {
+            	            						if (element == null) {
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	            							startIncompleteElement(element);
+            	            						}
+            	            						collectHiddenTokens(element);
+            	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_0, null, true);
+            	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
+            	            						// set value of enumeration attribute
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.MUL_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+            	            						completedElement(value, false);
+            	            					}
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // Arithm.g:865:12: a2= '/'
+            	            {
+            	            a2=(Token)match(input,11,FOLLOW_11_in_parse_org_emftext_language_arithm_MultiplicativeExpr603); if (state.failed) return element;
+
+            	            if ( state.backtracking==0 ) {
+            	            						if (element == null) {
+            	            							element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	            							startIncompleteElement(element);
+            	            						}
+            	            						collectHiddenTokens(element);
+            	            						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_0, null, true);
+            	            						copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a2, element);
+            	            						// set value of enumeration attribute
+            	            						Object value = org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeOp().getEEnumLiteral(org.emftext.language.arithm.MultiplicativeOp.DIV_VALUE).getInstance();
+            	            						addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__OPERATORS, value);
+            	            						completedElement(value, false);
+            	            					}
+
+            	            }
+            	            break;
+
+            	    }
+
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(org.emftext.language.arithm.ArithmPackage.eINSTANCE.getMultiplicativeExpr(), org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[20]);
+            	    			}
+
+            	    // Arithm.g:885:4: (a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild )
+            	    // Arithm.g:886:5: a5_0= parse_org_emftext_language_arithm_MultiplicativeExprChild
+            	    {
+            	    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr640);
+            	    a5_0=parse_org_emftext_language_arithm_MultiplicativeExprChild();
+
+            	    state._fsp--;
+            	    if (state.failed) return element;
+
+            	    if ( state.backtracking==0 ) {
+            	    					if (terminateParsing) {
+            	    						throw new org.emftext.language.arithm.resource.arithm.mopp.ArithmTerminateParsingException();
+            	    					}
+            	    					if (element == null) {
+            	    						element = org.emftext.language.arithm.ArithmFactory.eINSTANCE.createMultiplicativeExpr();
+            	    						startIncompleteElement(element);
+            	    					}
+            	    					if (a5_0 != null) {
+            	    						if (a5_0 != null) {
+            	    							Object value = a5_0;
+            	    							addObjectToList(element, org.emftext.language.arithm.ArithmPackage.MULTIPLICATIVE_EXPR__CHILDREN, value);
+            	    							completedElement(value, true);
+            	    						}
+            	    						collectHiddenTokens(element);
+            	    						retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_1_0_0_1, a5_0, true);
+            	    						copyLocalizationInfos(a5_0, element);
+            	    					}
+            	    				}
+
+            	    }
+
+
+            	    if ( state.backtracking==0 ) {
+            	    				// expected elements (follow set)
+            	    				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[21]);
+            	    				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[22]);
+            	    				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[23]);
+            	    				addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[24]);
+            	    			}
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt7 >= 1 ) break loop7;
+            	    if (state.backtracking>0) {state.failed=true; return element;}
+                        EarlyExitException eee =
+                            new EarlyExitException(7, input);
+                        throw eee;
+                }
+                cnt7++;
+            } while (true);
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[25]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[26]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[27]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[28]);
+            	}
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 5, parse_org_emftext_language_arithm_MultiplicativeExpr_StartIndex); }
 
         }
         return element;
@@ -1228,7 +1471,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_arithm_Number"
-    // Arithm.g:815:1: parse_org_emftext_language_arithm_Number returns [org.emftext.language.arithm.Number element = null] : (a0= TEXT ) ;
+    // Arithm.g:926:1: parse_org_emftext_language_arithm_Number returns [org.emftext.language.arithm.Number element = null] : (a0= TEXT ) ;
     public final org.emftext.language.arithm.Number parse_org_emftext_language_arithm_Number() throws RecognitionException {
         org.emftext.language.arithm.Number element =  null;
 
@@ -1239,15 +1482,15 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
 
-            // Arithm.g:818:2: ( (a0= TEXT ) )
-            // Arithm.g:819:2: (a0= TEXT )
+            // Arithm.g:929:2: ( (a0= TEXT ) )
+            // Arithm.g:930:2: (a0= TEXT )
             {
-            // Arithm.g:819:2: (a0= TEXT )
-            // Arithm.g:820:3: a0= TEXT
+            // Arithm.g:930:2: (a0= TEXT )
+            // Arithm.g:931:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_arithm_Number544); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_org_emftext_language_arithm_Number700); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -1273,7 +1516,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_3_0_0_0, resolved, true);
+            				retrieveLayoutInformation(element, org.emftext.language.arithm.resource.arithm.grammar.ArithmGrammarInformationProvider.ARITHM_4_0_0_0, resolved, true);
             				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a0, element);
             			}
             		}
@@ -1283,9 +1526,10 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[19]);
-            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[20]);
-            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[21]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[29]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[30]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[31]);
+            		addExpectedElement(null, org.emftext.language.arithm.resource.arithm.mopp.ArithmExpectationConstants.EXPECTATIONS[32]);
             	}
 
             }
@@ -1298,7 +1542,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 5, parse_org_emftext_language_arithm_Number_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 6, parse_org_emftext_language_arithm_Number_StartIndex); }
 
         }
         return element;
@@ -1308,11 +1552,105 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_arithm_Expr"
-    // Arithm.g:859:1: parse_org_emftext_language_arithm_Expr returns [org.emftext.language.arithm.Expr element = null] : (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number );
+    // Arithm.g:971:1: parse_org_emftext_language_arithm_Expr returns [org.emftext.language.arithm.Expr element = null] : (c0= parse_org_emftext_language_arithm_BitShiftExpr |c1= parse_org_emftext_language_arithm_AdditiveExpr |c2= parse_org_emftext_language_arithm_MultiplicativeExpr |c3= parse_org_emftext_language_arithm_Number );
     public final org.emftext.language.arithm.Expr parse_org_emftext_language_arithm_Expr() throws RecognitionException {
         org.emftext.language.arithm.Expr element =  null;
 
         int parse_org_emftext_language_arithm_Expr_StartIndex = input.index();
+
+        org.emftext.language.arithm.BitShiftExpr c0 =null;
+
+        org.emftext.language.arithm.AdditiveExpr c1 =null;
+
+        org.emftext.language.arithm.MultiplicativeExpr c2 =null;
+
+        org.emftext.language.arithm.Number c3 =null;
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
+
+            // Arithm.g:972:2: (c0= parse_org_emftext_language_arithm_BitShiftExpr |c1= parse_org_emftext_language_arithm_AdditiveExpr |c2= parse_org_emftext_language_arithm_MultiplicativeExpr |c3= parse_org_emftext_language_arithm_Number )
+            int alt8=4;
+            alt8 = dfa8.predict(input);
+            switch (alt8) {
+                case 1 :
+                    // Arithm.g:973:2: c0= parse_org_emftext_language_arithm_BitShiftExpr
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_BitShiftExpr_in_parse_org_emftext_language_arithm_Expr732);
+                    c0=parse_org_emftext_language_arithm_BitShiftExpr();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c0; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 2 :
+                    // Arithm.g:974:4: c1= parse_org_emftext_language_arithm_AdditiveExpr
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_Expr742);
+                    c1=parse_org_emftext_language_arithm_AdditiveExpr();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c1; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 3 :
+                    // Arithm.g:975:4: c2= parse_org_emftext_language_arithm_MultiplicativeExpr
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_Expr752);
+                    c2=parse_org_emftext_language_arithm_MultiplicativeExpr();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c2; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+                case 4 :
+                    // Arithm.g:976:4: c3= parse_org_emftext_language_arithm_Number
+                    {
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_Expr762);
+                    c3=parse_org_emftext_language_arithm_Number();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) { element = c3; /* this is a subclass or primitive expression choice */ }
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+            if ( state.backtracking>0 ) { memoize(input, 7, parse_org_emftext_language_arithm_Expr_StartIndex); }
+
+        }
+        return element;
+    }
+    // $ANTLR end "parse_org_emftext_language_arithm_Expr"
+
+
+
+    // $ANTLR start "parse_org_emftext_language_arithm_BitShiftExprChild"
+    // Arithm.g:980:1: parse_org_emftext_language_arithm_BitShiftExprChild returns [org.emftext.language.arithm.BitShiftExprChild element = null] : (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number );
+    public final org.emftext.language.arithm.BitShiftExprChild parse_org_emftext_language_arithm_BitShiftExprChild() throws RecognitionException {
+        org.emftext.language.arithm.BitShiftExprChild element =  null;
+
+        int parse_org_emftext_language_arithm_BitShiftExprChild_StartIndex = input.index();
 
         org.emftext.language.arithm.AdditiveExpr c0 =null;
 
@@ -1322,16 +1660,16 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return element; }
 
-            // Arithm.g:860:2: (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number )
-            int alt6=3;
-            alt6 = dfa6.predict(input);
-            switch (alt6) {
+            // Arithm.g:981:2: (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number )
+            int alt9=3;
+            alt9 = dfa9.predict(input);
+            switch (alt9) {
                 case 1 :
-                    // Arithm.g:861:2: c0= parse_org_emftext_language_arithm_AdditiveExpr
+                    // Arithm.g:982:2: c0= parse_org_emftext_language_arithm_AdditiveExpr
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_Expr576);
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_BitShiftExprChild783);
                     c0=parse_org_emftext_language_arithm_AdditiveExpr();
 
                     state._fsp--;
@@ -1342,9 +1680,9 @@ public class ArithmParser extends ArithmANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Arithm.g:862:4: c1= parse_org_emftext_language_arithm_MultiplicativeExpr
+                    // Arithm.g:983:4: c1= parse_org_emftext_language_arithm_MultiplicativeExpr
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_Expr586);
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_BitShiftExprChild793);
                     c1=parse_org_emftext_language_arithm_MultiplicativeExpr();
 
                     state._fsp--;
@@ -1355,9 +1693,9 @@ public class ArithmParser extends ArithmANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Arithm.g:863:4: c2= parse_org_emftext_language_arithm_Number
+                    // Arithm.g:984:4: c2= parse_org_emftext_language_arithm_Number
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_Expr596);
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_BitShiftExprChild803);
                     c2=parse_org_emftext_language_arithm_Number();
 
                     state._fsp--;
@@ -1377,17 +1715,17 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 6, parse_org_emftext_language_arithm_Expr_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 8, parse_org_emftext_language_arithm_BitShiftExprChild_StartIndex); }
 
         }
         return element;
     }
-    // $ANTLR end "parse_org_emftext_language_arithm_Expr"
+    // $ANTLR end "parse_org_emftext_language_arithm_BitShiftExprChild"
 
 
 
     // $ANTLR start "parse_org_emftext_language_arithm_AdditiveExprChild"
-    // Arithm.g:867:1: parse_org_emftext_language_arithm_AdditiveExprChild returns [org.emftext.language.arithm.AdditiveExprChild element = null] : (c0= parse_org_emftext_language_arithm_MultiplicativeExpr |c1= parse_org_emftext_language_arithm_Number );
+    // Arithm.g:988:1: parse_org_emftext_language_arithm_AdditiveExprChild returns [org.emftext.language.arithm.AdditiveExprChild element = null] : (c0= parse_org_emftext_language_arithm_MultiplicativeExpr |c1= parse_org_emftext_language_arithm_Number );
     public final org.emftext.language.arithm.AdditiveExprChild parse_org_emftext_language_arithm_AdditiveExprChild() throws RecognitionException {
         org.emftext.language.arithm.AdditiveExprChild element =  null;
 
@@ -1399,25 +1737,25 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
 
-            // Arithm.g:868:2: (c0= parse_org_emftext_language_arithm_MultiplicativeExpr |c1= parse_org_emftext_language_arithm_Number )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // Arithm.g:989:2: (c0= parse_org_emftext_language_arithm_MultiplicativeExpr |c1= parse_org_emftext_language_arithm_Number )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA7_0==TEXT) ) {
-                int LA7_1 = input.LA(2);
+            if ( (LA10_0==TEXT) ) {
+                int LA10_1 = input.LA(2);
 
-                if ( (LA7_1==7||LA7_1==11) ) {
-                    alt7=1;
+                if ( (LA10_1==7||LA10_1==11) ) {
+                    alt10=1;
                 }
-                else if ( (LA7_1==EOF||(LA7_1 >= 8 && LA7_1 <= 10)) ) {
-                    alt7=2;
+                else if ( (LA10_1==EOF||(LA10_1 >= 8 && LA10_1 <= 10)||(LA10_1 >= 12 && LA10_1 <= 13)) ) {
+                    alt10=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return element;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 7, 1, input);
+                        new NoViableAltException("", 10, 1, input);
 
                     throw nvae;
 
@@ -1426,16 +1764,16 @@ public class ArithmParser extends ArithmANTLRParserBase {
             else {
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt7) {
+            switch (alt10) {
                 case 1 :
-                    // Arithm.g:869:2: c0= parse_org_emftext_language_arithm_MultiplicativeExpr
+                    // Arithm.g:990:2: c0= parse_org_emftext_language_arithm_MultiplicativeExpr
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_AdditiveExprChild617);
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_AdditiveExprChild824);
                     c0=parse_org_emftext_language_arithm_MultiplicativeExpr();
 
                     state._fsp--;
@@ -1446,9 +1784,9 @@ public class ArithmParser extends ArithmANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Arithm.g:870:4: c1= parse_org_emftext_language_arithm_Number
+                    // Arithm.g:991:4: c1= parse_org_emftext_language_arithm_Number
                     {
-                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_AdditiveExprChild627);
+                    pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_AdditiveExprChild834);
                     c1=parse_org_emftext_language_arithm_Number();
 
                     state._fsp--;
@@ -1468,7 +1806,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 7, parse_org_emftext_language_arithm_AdditiveExprChild_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 9, parse_org_emftext_language_arithm_AdditiveExprChild_StartIndex); }
 
         }
         return element;
@@ -1478,7 +1816,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
     // $ANTLR start "parse_org_emftext_language_arithm_MultiplicativeExprChild"
-    // Arithm.g:874:1: parse_org_emftext_language_arithm_MultiplicativeExprChild returns [org.emftext.language.arithm.MultiplicativeExprChild element = null] : c0= parse_org_emftext_language_arithm_Number ;
+    // Arithm.g:995:1: parse_org_emftext_language_arithm_MultiplicativeExprChild returns [org.emftext.language.arithm.MultiplicativeExprChild element = null] : c0= parse_org_emftext_language_arithm_Number ;
     public final org.emftext.language.arithm.MultiplicativeExprChild parse_org_emftext_language_arithm_MultiplicativeExprChild() throws RecognitionException {
         org.emftext.language.arithm.MultiplicativeExprChild element =  null;
 
@@ -1488,12 +1826,12 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return element; }
+            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
 
-            // Arithm.g:875:2: (c0= parse_org_emftext_language_arithm_Number )
-            // Arithm.g:876:2: c0= parse_org_emftext_language_arithm_Number
+            // Arithm.g:996:2: (c0= parse_org_emftext_language_arithm_Number )
+            // Arithm.g:997:2: c0= parse_org_emftext_language_arithm_Number
             {
-            pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_MultiplicativeExprChild648);
+            pushFollow(FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_MultiplicativeExprChild855);
             c0=parse_org_emftext_language_arithm_Number();
 
             state._fsp--;
@@ -1511,7 +1849,7 @@ public class ArithmParser extends ArithmANTLRParserBase {
 
         finally {
         	// do for sure before leaving
-            if ( state.backtracking>0 ) { memoize(input, 8, parse_org_emftext_language_arithm_MultiplicativeExprChild_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 10, parse_org_emftext_language_arithm_MultiplicativeExprChild_StartIndex); }
 
         }
         return element;
@@ -1521,61 +1859,125 @@ public class ArithmParser extends ArithmANTLRParserBase {
     // Delegated rules
 
 
-    protected DFA6 dfa6 = new DFA6(this);
-    static final String DFA6_eotS =
-        "\10\uffff";
-    static final String DFA6_eofS =
-        "\1\uffff\1\5\4\uffff\1\7\1\uffff";
-    static final String DFA6_minS =
-        "\1\5\1\7\2\5\2\uffff\1\7\1\uffff";
-    static final String DFA6_maxS =
-        "\1\5\1\13\2\5\2\uffff\1\13\1\uffff";
-    static final String DFA6_acceptS =
-        "\4\uffff\1\1\1\3\1\uffff\1\2";
-    static final String DFA6_specialS =
-        "\10\uffff}>";
-    static final String[] DFA6_transitionS = {
+    protected DFA8 dfa8 = new DFA8(this);
+    protected DFA9 dfa9 = new DFA9(this);
+    static final String DFA8_eotS =
+        "\17\uffff";
+    static final String DFA8_eofS =
+        "\1\uffff\1\7\6\uffff\1\12\1\15\4\uffff\1\15";
+    static final String DFA8_minS =
+        "\1\5\1\7\4\5\2\uffff\2\7\1\uffff\2\5\1\uffff\1\7";
+    static final String DFA8_maxS =
+        "\1\5\1\15\4\5\2\uffff\2\15\1\uffff\2\5\1\uffff\1\15";
+    static final String DFA8_acceptS =
+        "\6\uffff\1\1\1\4\2\uffff\1\3\2\uffff\1\2\1\uffff";
+    static final String DFA8_specialS =
+        "\17\uffff}>";
+    static final String[] DFA8_transitionS = {
             "\1\1",
-            "\1\2\1\4\1\5\1\4\1\3",
-            "\1\6",
-            "\1\6",
+            "\1\2\1\4\1\7\1\5\1\3\2\6",
+            "\1\10",
+            "\1\10",
+            "\1\11",
+            "\1\11",
             "",
             "",
-            "\1\2\1\4\1\7\1\4\1\3",
-            ""
+            "\1\2\1\4\1\12\1\5\1\3\2\6",
+            "\1\13\1\4\1\15\1\5\1\14\2\6",
+            "",
+            "\1\16",
+            "\1\16",
+            "",
+            "\1\13\1\4\1\15\1\5\1\14\2\6"
     };
 
-    static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
-    static final short[] DFA6_eof = DFA.unpackEncodedString(DFA6_eofS);
-    static final char[] DFA6_min = DFA.unpackEncodedStringToUnsignedChars(DFA6_minS);
-    static final char[] DFA6_max = DFA.unpackEncodedStringToUnsignedChars(DFA6_maxS);
-    static final short[] DFA6_accept = DFA.unpackEncodedString(DFA6_acceptS);
-    static final short[] DFA6_special = DFA.unpackEncodedString(DFA6_specialS);
-    static final short[][] DFA6_transition;
+    static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
+    static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
+    static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
+    static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
+    static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
+    static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
+    static final short[][] DFA8_transition;
 
     static {
-        int numStates = DFA6_transitionS.length;
-        DFA6_transition = new short[numStates][];
+        int numStates = DFA8_transitionS.length;
+        DFA8_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA6_transition[i] = DFA.unpackEncodedString(DFA6_transitionS[i]);
+            DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
         }
     }
 
-    class DFA6 extends DFA {
+    class DFA8 extends DFA {
 
-        public DFA6(BaseRecognizer recognizer) {
+        public DFA8(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 6;
-            this.eot = DFA6_eot;
-            this.eof = DFA6_eof;
-            this.min = DFA6_min;
-            this.max = DFA6_max;
-            this.accept = DFA6_accept;
-            this.special = DFA6_special;
-            this.transition = DFA6_transition;
+            this.decisionNumber = 8;
+            this.eot = DFA8_eot;
+            this.eof = DFA8_eof;
+            this.min = DFA8_min;
+            this.max = DFA8_max;
+            this.accept = DFA8_accept;
+            this.special = DFA8_special;
+            this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "859:1: parse_org_emftext_language_arithm_Expr returns [org.emftext.language.arithm.Expr element = null] : (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number );";
+            return "971:1: parse_org_emftext_language_arithm_Expr returns [org.emftext.language.arithm.Expr element = null] : (c0= parse_org_emftext_language_arithm_BitShiftExpr |c1= parse_org_emftext_language_arithm_AdditiveExpr |c2= parse_org_emftext_language_arithm_MultiplicativeExpr |c3= parse_org_emftext_language_arithm_Number );";
+        }
+    }
+    static final String DFA9_eotS =
+        "\10\uffff";
+    static final String DFA9_eofS =
+        "\1\uffff\1\5\4\uffff\1\7\1\uffff";
+    static final String DFA9_minS =
+        "\1\5\1\7\2\5\2\uffff\1\7\1\uffff";
+    static final String DFA9_maxS =
+        "\1\5\1\15\2\5\2\uffff\1\15\1\uffff";
+    static final String DFA9_acceptS =
+        "\4\uffff\1\1\1\3\1\uffff\1\2";
+    static final String DFA9_specialS =
+        "\10\uffff}>";
+    static final String[] DFA9_transitionS = {
+            "\1\1",
+            "\1\2\1\4\1\5\1\4\1\3\2\5",
+            "\1\6",
+            "\1\6",
+            "",
+            "",
+            "\1\2\1\4\1\7\1\4\1\3\2\7",
+            ""
+    };
+
+    static final short[] DFA9_eot = DFA.unpackEncodedString(DFA9_eotS);
+    static final short[] DFA9_eof = DFA.unpackEncodedString(DFA9_eofS);
+    static final char[] DFA9_min = DFA.unpackEncodedStringToUnsignedChars(DFA9_minS);
+    static final char[] DFA9_max = DFA.unpackEncodedStringToUnsignedChars(DFA9_maxS);
+    static final short[] DFA9_accept = DFA.unpackEncodedString(DFA9_acceptS);
+    static final short[] DFA9_special = DFA.unpackEncodedString(DFA9_specialS);
+    static final short[][] DFA9_transition;
+
+    static {
+        int numStates = DFA9_transitionS.length;
+        DFA9_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA9_transition[i] = DFA.unpackEncodedString(DFA9_transitionS[i]);
+        }
+    }
+
+    class DFA9 extends DFA {
+
+        public DFA9(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 9;
+            this.eot = DFA9_eot;
+            this.eof = DFA9_eof;
+            this.min = DFA9_min;
+            this.max = DFA9_max;
+            this.accept = DFA9_accept;
+            this.special = DFA9_special;
+            this.transition = DFA9_transition;
+        }
+        public String getDescription() {
+            return "980:1: parse_org_emftext_language_arithm_BitShiftExprChild returns [org.emftext.language.arithm.BitShiftExprChild element = null] : (c0= parse_org_emftext_language_arithm_AdditiveExpr |c1= parse_org_emftext_language_arithm_MultiplicativeExpr |c2= parse_org_emftext_language_arithm_Number );";
         }
     }
  
@@ -1585,20 +1987,28 @@ public class ArithmParser extends ArithmANTLRParserBase {
     public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Expr_in_parse_org_emftext_language_arithm_Calc119 = new BitSet(new long[]{0x0000000000000202L});
     public static final BitSet FOLLOW_9_in_parse_org_emftext_language_arithm_Calc146 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Expr_in_parse_org_emftext_language_arithm_Calc172 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr232 = new BitSet(new long[]{0x0000000000000500L});
-    public static final BitSet FOLLOW_8_in_parse_org_emftext_language_arithm_AdditiveExpr272 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_10_in_parse_org_emftext_language_arithm_AdditiveExpr291 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr328 = new BitSet(new long[]{0x0000000000000502L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr388 = new BitSet(new long[]{0x0000000000000880L});
-    public static final BitSet FOLLOW_7_in_parse_org_emftext_language_arithm_MultiplicativeExpr428 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_11_in_parse_org_emftext_language_arithm_MultiplicativeExpr447 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr484 = new BitSet(new long[]{0x0000000000000882L});
-    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_arithm_Number544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_Expr576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_Expr586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_Expr596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_AdditiveExprChild617 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_AdditiveExprChild627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_MultiplicativeExprChild648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_BitShiftExprChild_in_parse_org_emftext_language_arithm_BitShiftExpr232 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_12_in_parse_org_emftext_language_arithm_BitShiftExpr272 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_13_in_parse_org_emftext_language_arithm_BitShiftExpr291 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_BitShiftExprChild_in_parse_org_emftext_language_arithm_BitShiftExpr328 = new BitSet(new long[]{0x0000000000003002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr388 = new BitSet(new long[]{0x0000000000000500L});
+    public static final BitSet FOLLOW_8_in_parse_org_emftext_language_arithm_AdditiveExpr428 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_10_in_parse_org_emftext_language_arithm_AdditiveExpr447 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExprChild_in_parse_org_emftext_language_arithm_AdditiveExpr484 = new BitSet(new long[]{0x0000000000000502L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr544 = new BitSet(new long[]{0x0000000000000880L});
+    public static final BitSet FOLLOW_7_in_parse_org_emftext_language_arithm_MultiplicativeExpr584 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11_in_parse_org_emftext_language_arithm_MultiplicativeExpr603 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExprChild_in_parse_org_emftext_language_arithm_MultiplicativeExpr640 = new BitSet(new long[]{0x0000000000000882L});
+    public static final BitSet FOLLOW_TEXT_in_parse_org_emftext_language_arithm_Number700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_BitShiftExpr_in_parse_org_emftext_language_arithm_Expr732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_Expr742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_Expr752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_Expr762 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_AdditiveExpr_in_parse_org_emftext_language_arithm_BitShiftExprChild783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_BitShiftExprChild793 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_BitShiftExprChild803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_MultiplicativeExpr_in_parse_org_emftext_language_arithm_AdditiveExprChild824 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_AdditiveExprChild834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_emftext_language_arithm_Number_in_parse_org_emftext_language_arithm_MultiplicativeExprChild855 = new BitSet(new long[]{0x0000000000000002L});
 
 }

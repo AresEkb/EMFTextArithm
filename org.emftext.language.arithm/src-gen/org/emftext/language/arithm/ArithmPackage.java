@@ -104,14 +104,14 @@ public interface ArithmPackage extends EPackage {
 	int EXPR_FEATURE_COUNT = 0;
 
 	/**
-   * The meta object id for the '{@link org.emftext.language.arithm.impl.AdditiveExprImpl <em>Additive Expr</em>}' class.
+   * The meta object id for the '{@link org.emftext.language.arithm.impl.BitShiftExprImpl <em>Bit Shift Expr</em>}' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see org.emftext.language.arithm.impl.AdditiveExprImpl
-   * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getAdditiveExpr()
+   * @see org.emftext.language.arithm.impl.BitShiftExprImpl
+   * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftExpr()
    * @generated
    */
-	int ADDITIVE_EXPR = 2;
+	int BIT_SHIFT_EXPR = 2;
 
 	/**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -120,7 +120,7 @@ public interface ArithmPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ADDITIVE_EXPR__CHILDREN = EXPR_FEATURE_COUNT + 0;
+	int BIT_SHIFT_EXPR__CHILDREN = EXPR_FEATURE_COUNT + 0;
 
 	/**
    * The feature id for the '<em><b>Operators</b></em>' attribute list.
@@ -129,7 +129,63 @@ public interface ArithmPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ADDITIVE_EXPR__OPERATORS = EXPR_FEATURE_COUNT + 1;
+	int BIT_SHIFT_EXPR__OPERATORS = EXPR_FEATURE_COUNT + 1;
+
+	/**
+   * The number of structural features of the '<em>Bit Shift Expr</em>' class.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int BIT_SHIFT_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+
+	/**
+   * The meta object id for the '{@link org.emftext.language.arithm.impl.BitShiftExprChildImpl <em>Bit Shift Expr Child</em>}' class.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @see org.emftext.language.arithm.impl.BitShiftExprChildImpl
+   * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftExprChild()
+   * @generated
+   */
+	int BIT_SHIFT_EXPR_CHILD = 3;
+
+	/**
+   * The number of structural features of the '<em>Bit Shift Expr Child</em>' class.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int BIT_SHIFT_EXPR_CHILD_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
+
+	/**
+   * The meta object id for the '{@link org.emftext.language.arithm.impl.AdditiveExprImpl <em>Additive Expr</em>}' class.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @see org.emftext.language.arithm.impl.AdditiveExprImpl
+   * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getAdditiveExpr()
+   * @generated
+   */
+	int ADDITIVE_EXPR = 4;
+
+	/**
+   * The feature id for the '<em><b>Children</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int ADDITIVE_EXPR__CHILDREN = BIT_SHIFT_EXPR_CHILD_FEATURE_COUNT + 0;
+
+	/**
+   * The feature id for the '<em><b>Operators</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+	int ADDITIVE_EXPR__OPERATORS = BIT_SHIFT_EXPR_CHILD_FEATURE_COUNT + 1;
 
 	/**
    * The number of structural features of the '<em>Additive Expr</em>' class.
@@ -138,7 +194,7 @@ public interface ArithmPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ADDITIVE_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+	int ADDITIVE_EXPR_FEATURE_COUNT = BIT_SHIFT_EXPR_CHILD_FEATURE_COUNT + 2;
 
 	/**
    * The meta object id for the '{@link org.emftext.language.arithm.impl.AdditiveExprChildImpl <em>Additive Expr Child</em>}' class.
@@ -148,7 +204,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getAdditiveExprChild()
    * @generated
    */
-	int ADDITIVE_EXPR_CHILD = 3;
+	int ADDITIVE_EXPR_CHILD = 5;
 
 	/**
    * The number of structural features of the '<em>Additive Expr Child</em>' class.
@@ -157,7 +213,7 @@ public interface ArithmPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int ADDITIVE_EXPR_CHILD_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
+	int ADDITIVE_EXPR_CHILD_FEATURE_COUNT = BIT_SHIFT_EXPR_CHILD_FEATURE_COUNT + 0;
 
 	/**
    * The meta object id for the '{@link org.emftext.language.arithm.impl.MultiplicativeExprImpl <em>Multiplicative Expr</em>}' class.
@@ -167,7 +223,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getMultiplicativeExpr()
    * @generated
    */
-	int MULTIPLICATIVE_EXPR = 4;
+	int MULTIPLICATIVE_EXPR = 6;
 
 	/**
    * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -204,7 +260,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getMultiplicativeExprChild()
    * @generated
    */
-	int MULTIPLICATIVE_EXPR_CHILD = 5;
+	int MULTIPLICATIVE_EXPR_CHILD = 7;
 
 	/**
    * The number of structural features of the '<em>Multiplicative Expr Child</em>' class.
@@ -223,7 +279,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getNumber()
    * @generated
    */
-	int NUMBER = 6;
+	int NUMBER = 8;
 
 	/**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -244,6 +300,16 @@ public interface ArithmPackage extends EPackage {
 	int NUMBER_FEATURE_COUNT = MULTIPLICATIVE_EXPR_CHILD_FEATURE_COUNT + 1;
 
 	/**
+   * The meta object id for the '{@link org.emftext.language.arithm.BitShiftOp <em>Bit Shift Op</em>}' enum.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @see org.emftext.language.arithm.BitShiftOp
+   * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftOp()
+   * @generated
+   */
+	int BIT_SHIFT_OP = 9;
+
+	/**
    * The meta object id for the '{@link org.emftext.language.arithm.AdditiveOp <em>Additive Op</em>}' enum.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,7 +317,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getAdditiveOp()
    * @generated
    */
-	int ADDITIVE_OP = 7;
+	int ADDITIVE_OP = 10;
 
 	/**
    * The meta object id for the '{@link org.emftext.language.arithm.MultiplicativeOp <em>Multiplicative Op</em>}' enum.
@@ -261,7 +327,7 @@ public interface ArithmPackage extends EPackage {
    * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getMultiplicativeOp()
    * @generated
    */
-	int MULTIPLICATIVE_OP = 8;
+	int MULTIPLICATIVE_OP = 11;
 
 
 	/**
@@ -294,6 +360,48 @@ public interface ArithmPackage extends EPackage {
    * @generated
    */
 	EClass getExpr();
+
+	/**
+   * Returns the meta object for class '{@link org.emftext.language.arithm.BitShiftExpr <em>Bit Shift Expr</em>}'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bit Shift Expr</em>'.
+   * @see org.emftext.language.arithm.BitShiftExpr
+   * @generated
+   */
+	EClass getBitShiftExpr();
+
+	/**
+   * Returns the meta object for the containment reference list '{@link org.emftext.language.arithm.BitShiftExpr#getChildren <em>Children</em>}'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Children</em>'.
+   * @see org.emftext.language.arithm.BitShiftExpr#getChildren()
+   * @see #getBitShiftExpr()
+   * @generated
+   */
+	EReference getBitShiftExpr_Children();
+
+	/**
+   * Returns the meta object for the attribute list '{@link org.emftext.language.arithm.BitShiftExpr#getOperators <em>Operators</em>}'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Operators</em>'.
+   * @see org.emftext.language.arithm.BitShiftExpr#getOperators()
+   * @see #getBitShiftExpr()
+   * @generated
+   */
+	EAttribute getBitShiftExpr_Operators();
+
+	/**
+   * Returns the meta object for class '{@link org.emftext.language.arithm.BitShiftExprChild <em>Bit Shift Expr Child</em>}'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bit Shift Expr Child</em>'.
+   * @see org.emftext.language.arithm.BitShiftExprChild
+   * @generated
+   */
+	EClass getBitShiftExprChild();
 
 	/**
    * Returns the meta object for class '{@link org.emftext.language.arithm.AdditiveExpr <em>Additive Expr</em>}'.
@@ -401,6 +509,16 @@ public interface ArithmPackage extends EPackage {
 	EAttribute getNumber_Value();
 
 	/**
+   * Returns the meta object for enum '{@link org.emftext.language.arithm.BitShiftOp <em>Bit Shift Op</em>}'.
+   * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Bit Shift Op</em>'.
+   * @see org.emftext.language.arithm.BitShiftOp
+   * @generated
+   */
+	EEnum getBitShiftOp();
+
+	/**
    * Returns the meta object for enum '{@link org.emftext.language.arithm.AdditiveOp <em>Additive Op</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -469,6 +587,42 @@ public interface ArithmPackage extends EPackage {
      * @generated
      */
 		EClass EXPR = eINSTANCE.getExpr();
+
+		/**
+     * The meta object literal for the '{@link org.emftext.language.arithm.impl.BitShiftExprImpl <em>Bit Shift Expr</em>}' class.
+     * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+     * @see org.emftext.language.arithm.impl.BitShiftExprImpl
+     * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftExpr()
+     * @generated
+     */
+		EClass BIT_SHIFT_EXPR = eINSTANCE.getBitShiftExpr();
+
+		/**
+     * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+     * @generated
+     */
+		EReference BIT_SHIFT_EXPR__CHILDREN = eINSTANCE.getBitShiftExpr_Children();
+
+		/**
+     * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+     * @generated
+     */
+		EAttribute BIT_SHIFT_EXPR__OPERATORS = eINSTANCE.getBitShiftExpr_Operators();
+
+		/**
+     * The meta object literal for the '{@link org.emftext.language.arithm.impl.BitShiftExprChildImpl <em>Bit Shift Expr Child</em>}' class.
+     * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+     * @see org.emftext.language.arithm.impl.BitShiftExprChildImpl
+     * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftExprChild()
+     * @generated
+     */
+		EClass BIT_SHIFT_EXPR_CHILD = eINSTANCE.getBitShiftExprChild();
 
 		/**
      * The meta object literal for the '{@link org.emftext.language.arithm.impl.AdditiveExprImpl <em>Additive Expr</em>}' class.
@@ -559,6 +713,16 @@ public interface ArithmPackage extends EPackage {
      * @generated
      */
 		EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
+
+		/**
+     * The meta object literal for the '{@link org.emftext.language.arithm.BitShiftOp <em>Bit Shift Op</em>}' enum.
+     * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+     * @see org.emftext.language.arithm.BitShiftOp
+     * @see org.emftext.language.arithm.impl.ArithmPackageImpl#getBitShiftOp()
+     * @generated
+     */
+		EEnum BIT_SHIFT_OP = eINSTANCE.getBitShiftOp();
 
 		/**
      * The meta object literal for the '{@link org.emftext.language.arithm.AdditiveOp <em>Additive Op</em>}' enum.

@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.emftext.language.arithm.AdditiveExpr;
 import org.emftext.language.arithm.AdditiveExprChild;
 import org.emftext.language.arithm.ArithmPackage;
+import org.emftext.language.arithm.BitShiftExpr;
+import org.emftext.language.arithm.BitShiftExprChild;
 import org.emftext.language.arithm.Calc;
 import org.emftext.language.arithm.Expr;
 import org.emftext.language.arithm.MultiplicativeExpr;
@@ -88,6 +90,16 @@ public class ArithmAdapterFactory extends AdapterFactoryImpl {
         return createExprAdapter();
       }
       @Override
+      public Adapter caseBitShiftExpr(BitShiftExpr object)
+      {
+        return createBitShiftExprAdapter();
+      }
+      @Override
+      public Adapter caseBitShiftExprChild(BitShiftExprChild object)
+      {
+        return createBitShiftExprChildAdapter();
+      }
+      @Override
       public Adapter caseAdditiveExpr(AdditiveExpr object)
       {
         return createAdditiveExprAdapter();
@@ -158,6 +170,34 @@ public class ArithmAdapterFactory extends AdapterFactoryImpl {
    * @generated
    */
 	public Adapter createExprAdapter() {
+    return null;
+  }
+
+	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.arithm.BitShiftExpr <em>Bit Shift Expr</em>}'.
+   * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.arithm.BitShiftExpr
+   * @generated
+   */
+	public Adapter createBitShiftExprAdapter() {
+    return null;
+  }
+
+	/**
+   * Creates a new adapter for an object of class '{@link org.emftext.language.arithm.BitShiftExprChild <em>Bit Shift Expr Child</em>}'.
+   * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.emftext.language.arithm.BitShiftExprChild
+   * @generated
+   */
+	public Adapter createBitShiftExprChildAdapter() {
     return null;
   }
 
