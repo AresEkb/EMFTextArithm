@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMFText Parser Plugin: arithm
+Bundle-SymbolicName: org.emftext.language.arithm.resource.arithm;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Software Technology Group - TU Dresden Germany
+Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
+  org.eclipse.emf.ecore,
+  org.eclipse.emf.ecore.change,
+  org.eclipse.emf.validation;resolution:=optional,
+  org.emftext.access;resolution:=optional,
+  org.eclipse.debug.core;resolution:=optional,
+  org.emftext.commons.antlr3_4_0,
+  org.emftext.language.arithm
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.emftext.language.arithm.resource.arithm,
+  org.emftext.language.arithm.resource.arithm.analysis,
+  org.emftext.language.arithm.resource.arithm.mopp,
+  org.emftext.language.arithm.resource.arithm.debug,
+  org.emftext.language.arithm.resource.arithm.launch,
+  org.emftext.language.arithm.resource.arithm.grammar,
+  org.emftext.language.arithm.resource.arithm.util
+Bundle-Activator: org.emftext.language.arithm.resource.arithm.mopp.ArithmPlugin
